@@ -12,9 +12,6 @@ jobs:
     name: Format Go Code
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: write
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -24,12 +21,6 @@ jobs:
         with:
           go-version: stable
 
-      - name: Format Go files
+      - name: Check Go formatting
         run: |
-          gofmt -s -w .
-          go mod tidy
-
-      - name: Commit formatting changes
-        uses: stefanzweifel/git-auto-commit-action@v6
-        with:
-          commit_message: "chore: format Go code"
+          gofmt -w -e .
