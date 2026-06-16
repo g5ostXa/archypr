@@ -50,10 +50,11 @@ func InstallStart() {
 		input = strings.ToLower(strings.TrimSpace(input))
 
 		if input == "n" || input == "" {
-			fmt.Println()
+			core.ClearScreen()
 			core.Logger.Info("Installation cancelled by user.")
 			os.Exit(0)
 		} else if input == "y" {
+			core.ClearScreen()
 			break
 		}
 
