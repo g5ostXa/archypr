@@ -11,5 +11,5 @@ I want to attempt to convert [this project](https://github.com/g5ostXa/hyprarch2
 > [!WARNING]
 > - **LLM code free project, every PR's that contains obvious AI generated code will be automatically denied and closed.**
 
-Nothing is planned for now, but we welcome contributions, ideas, advice and even opinions. \
+We welcome contributions, ideas, advice and even opinions. \
 Communicate with us: g5ostX2@proton.me
