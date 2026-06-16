@@ -15,7 +15,7 @@ const PacmanConfPath = "/etc/pacman.conf"
 
 func Configure() {
 	if err := ConfigureFile(PacmanConfPath); err != nil {
-		core.Logger.Warn("Failed to configure pacman.conf", "error", err)
+		core.Logger.Warn("Failed to configure pacman", "error", err)
 	}
 }
 
@@ -32,7 +32,7 @@ func ConfigureFile(path string) error {
 
 	updated, changes := updatePacmanConf(contents)
 	if len(changes) == 0 {
-		core.Logger.Info("pacman.conf is already configured")
+		core.Logger.Info("Pacman is already configured")
 		return nil
 	}
 
@@ -43,7 +43,7 @@ func ConfigureFile(path string) error {
 	for _, change := range changes {
 		core.Logger.Info(change)
 	}
-	core.Logger.Info("pacman.conf has been configured")
+	core.Logger.Info("Pacman has been configured")
 	return nil
 }
 
