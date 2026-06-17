@@ -25,7 +25,6 @@ func ClearScreen() {
 	cmd := exec.Command("clear")
 
 	output, err := cmd.Output()
-
 	if err != nil {
 		fmt.Printf("\033[2J\033[H")
 	}
