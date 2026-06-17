@@ -8,8 +8,8 @@
 #### The goal
 I want to attempt to convert [this project](https://github.com/g5ostXa/hyprarch2) to a Go application.
 
-> [!WARNING]
-> - **LLM code free project, every PR's that contains obvious AI generated code will be automatically denied and closed.**
-
 We welcome contributions, ideas, advice and even opinions. \
 Communicate with us: g5ostX2@proton.me
+
+> [!WARNING]
+> - **LLM code free project, every PR's that contains obvious AI generated code will be automatically denied and closed.**
