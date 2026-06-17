@@ -32,7 +32,7 @@ func ConfigureFile(path string) error {
 
 	updated, changes := updatePacmanConf(contents)
 	if len(changes) == 0 {
-		core.Logger.Info("Pacman is already configured")
+		core.Logger.Info("Pacman is already configured !")
 		return nil
 	}
 
@@ -43,7 +43,7 @@ func ConfigureFile(path string) error {
 	for _, change := range changes {
 		core.Logger.Info(change)
 	}
-	core.Logger.Info("Pacman has been configured")
+	core.Logger.Info("Pacman has been configured !")
 	return nil
 }
 

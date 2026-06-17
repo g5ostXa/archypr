@@ -8,7 +8,7 @@ import (
 var (
 	white = lipgloss.Color("#FFFFFF")
 	blue  = lipgloss.Color("#2436c5")
-	green = lipgloss.Color("#1fc876")
+	//green = lipgloss.Color("#1fc876")
 	//purple = lipgloss.Color("#8010d0")
 )
 
@@ -27,11 +27,6 @@ var (
 				Align(lipgloss.Center).
 				Foreground((blue)).
 				Width(15).
-				PaddingLeft(1)
-
-	CommonSeparatorStyle = lipgloss.NewStyle().
-				Bold(true).
-				Foreground((green)).
 				PaddingLeft(1)
 
 	CommonPromptStyle = lipgloss.NewStyle().
