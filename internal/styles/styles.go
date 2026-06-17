@@ -6,10 +6,10 @@ import (
 
 // Main colors
 var (
-	white  = lipgloss.Color("#FFFFFF")
-	blue   = lipgloss.Color("#2436c5")
-	green  = lipgloss.Color("#1fc876")
-	purple = lipgloss.Color("#8010d0")
+	white = lipgloss.Color("#FFFFFF")
+	blue  = lipgloss.Color("#2436c5")
+	green = lipgloss.Color("#1fc876")
+	//purple = lipgloss.Color("#8010d0")
 )
 
 // Master header style
@@ -41,8 +41,3 @@ var (
 				MarginTop(1).
 				PaddingLeft(1)
 )
-
-// Installer style
-var CommonWarningStyle = lipgloss.NewStyle().
-	Bold(true).
-	Foreground((purple))

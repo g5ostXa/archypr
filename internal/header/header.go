@@ -23,11 +23,6 @@ func InstallStart() {
 
 	core.ClearScreen()
 
-	core.Logger.Info("Initializing installer...")
-	time.Sleep(1 * time.Second)
-
-	core.ClearScreen()
-
 	lipgloss.Println(
 		styles.MasterTileStyle.Render(
 			fmt.Sprintf("Welcome to %s !", MasterTitle),
@@ -43,6 +38,12 @@ func InstallStart() {
 	core.Separator()
 	reader := bufio.NewReader(os.Stdin)
 
+	time.Sleep(1 * time.Second)
+	fmt.Println()
+
+	core.TimeLogger.Info("Initialized installer...")
+	time.Sleep(1 * time.Second)
+
 	for {
 		lipgloss.Print(styles.CommonPromptStyle.Render(installPromptMsg))
 
@@ -56,7 +57,6 @@ func InstallStart() {
 			break
 		}
 
-		lipgloss.Print(styles.CommonWarningStyle.Render("-> Invalid input. Please type 'y' or 'n'."))
-		fmt.Println()
+		core.Logger.Warn("Invalid input. Please type y or n ...")
 	}
 }

@@ -10,9 +10,16 @@ import (
 	"github.com/g5ostXa/archypr/internal/styles"
 )
 
+// Common logger
 var Logger = log.NewWithOptions(os.Stderr, log.Options{
+	ReportTimestamp: false,
+	Prefix:          ":",
+})
+
+// Time-stamped logger:
+var TimeLogger = log.NewWithOptions(os.Stderr, log.Options{
 	ReportTimestamp: true,
-	Prefix:          " 󰣇 Log",
+	Prefix:          ":",
 })
 
 func ClearScreen() {

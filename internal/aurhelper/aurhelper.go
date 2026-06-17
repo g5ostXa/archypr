@@ -37,14 +37,13 @@ func installAurHelper() {
 			break
 		}
 
-		lipgloss.Print(styles.CommonWarningStyle.Render("-> Invalid input. Please type 'y' or 'n'."))
-		fmt.Println()
+		core.Logger.Warn("Invalid input. Please type y or n ...")
 	}
 
 	homeDir, err := os.UserHomeDir()
 
 	if err != nil {
-		core.Logger.Fatal("Could not determine home directory...")
+		core.TimeLogger.Fatal("Could not determine home directory...")
 	}
 
 	cacheDir := filepath.Join(homeDir, ".cache")
@@ -57,7 +56,7 @@ func installAurHelper() {
 	gitCmd.Stderr = os.Stderr
 
 	if err := gitCmd.Run(); err != nil {
-		core.Logger.Fatal("Failed to clone paru")
+		core.TimeLogger.Fatal("Failed to clone paru")
 	}
 
 	buildCmd := exec.Command("makepkg", "-si", "--noconfirm")
@@ -66,7 +65,8 @@ func installAurHelper() {
 	buildCmd.Stderr = os.Stderr
 
 	if err := buildCmd.Run(); err != nil {
-		core.Logger.Fatal("Failed to build and install paru...")
+		fmt.Println()
+		core.TimeLogger.Fatal("Failed to build and install paru...")
 	}
 
 	fmt.Println()
@@ -77,6 +77,7 @@ func Check() {
 
 	if _, err := exec.LookPath("paru"); err == nil {
 		// If aur helper is already installed, run this...
+		fmt.Println()
 		core.Logger.Info("Paru is already installed")
 		return
 	}
