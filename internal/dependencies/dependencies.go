@@ -16,7 +16,7 @@ func Check() {
 		cmd := exec.Command("paru", "-Qi", pkg)
 
 		if err := cmd.Run(); err != nil {
-			// Run this is not all dependencies are installed...
+			// Run something here if not all dependencies are installed...
 			core.TimeLogger.Fatal("Some dependencies are missing...")
 		}
 	}
