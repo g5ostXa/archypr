@@ -23,7 +23,8 @@ func installAurHelper() {
 	reader := bufio.NewReader(os.Stdin)
 
 	for {
-		lipgloss.Println(styles.CommonPromptStyle.Render(helperInstallPromptMsg))
+		lipgloss.Print(styles.CommonPromptStyle.Render(helperInstallPromptMsg))
+		fmt.Println()
 
 		input, _ := reader.ReadString('\n')
 		input = strings.ToLower(strings.TrimSpace(input))
@@ -68,6 +69,7 @@ func installAurHelper() {
 		core.Logger.Fatal("Failed to build and install paru...")
 	}
 
+	fmt.Println()
 	core.Logger.Info("Paru has been successfully built and installed!")
 }
 
