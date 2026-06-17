@@ -35,7 +35,6 @@ func InstallStart() {
 		),
 	)
 
-	core.Separator()
 	reader := bufio.NewReader(os.Stdin)
 
 	time.Sleep(1 * time.Second)
