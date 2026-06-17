@@ -77,7 +77,6 @@ func Check() {
 
 	if _, err := exec.LookPath("paru"); err == nil {
 		// If aur helper is already installed, run this...
-		fmt.Println()
 		core.Logger.Info("Paru is already installed")
 		return
 	}
