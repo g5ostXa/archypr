@@ -36,7 +36,8 @@ func installAurHelper() {
 			break
 		}
 
-		lipgloss.Println(styles.CommonWarningStyle.Render("-> Invalid input. Please type 'y' or 'n'."))
+		lipgloss.Print(styles.CommonWarningStyle.Render("-> Invalid input. Please type 'y' or 'n'."))
+		fmt.Println()
 	}
 
 	homeDir, err := os.UserHomeDir()

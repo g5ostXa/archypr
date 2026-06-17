@@ -44,7 +44,7 @@ func InstallStart() {
 	reader := bufio.NewReader(os.Stdin)
 
 	for {
-		lipgloss.Println(styles.CommonPromptStyle.Render(installPromptMsg))
+		lipgloss.Print(styles.CommonPromptStyle.Render(installPromptMsg))
 
 		input, _ := reader.ReadString('\n')
 		input = strings.ToLower(strings.TrimSpace(input))
@@ -56,6 +56,7 @@ func InstallStart() {
 			break
 		}
 
-		lipgloss.Println(styles.CommonWarningStyle.Render("-> Invalid input. Please type 'y' or 'n'."))
+		lipgloss.Print(styles.CommonWarningStyle.Render("-> Invalid input. Please type 'y' or 'n'."))
+		fmt.Println()
 	}
 }
