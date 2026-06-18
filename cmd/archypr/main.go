@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/g5ostXa/archypr/internal/aurhelper"
-	"github.com/g5ostXa/archypr/internal/dependencies"
+	"github.com/g5ostXa/archypr/internal/checkdepends"
 	"github.com/g5ostXa/archypr/internal/header"
 	"github.com/g5ostXa/archypr/internal/pacmanconf"
 )
@@ -16,5 +16,5 @@ func main() {
 
 	// Install paru and all archypr dependendices
 	aurhelper.Check()
-	dependencies.Check()
+	checkdepends.Validate()
 }
