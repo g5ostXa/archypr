@@ -18,7 +18,7 @@ var helperInstallPromptMsg = "→ Do you want to install paru now? (Yy/Nn):"
 func installAurHelper() {
 
 	fmt.Println()
-	core.Logger.Info("Paru was not found on your system.")
+	core.Logger.Warn("Paru is not installed...")
 
 	reader := bufio.NewReader(os.Stdin)
 
