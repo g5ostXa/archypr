@@ -33,6 +33,5 @@ var (
 				Bold(true).
 				Align(lipgloss.Center).
 				Foreground((white)).
-				MarginTop(1).
 				PaddingLeft(1)
 )

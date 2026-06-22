@@ -1,43 +1,22 @@
 package aurhelper
 
 import (
-	"bufio"
-	"fmt"
 	"os"
 	"os/exec"
 	"path/filepath"
-	"strings"
 
-	"charm.land/lipgloss/v2"
 	"github.com/g5ostXa/archypr/internal/core"
-	"github.com/g5ostXa/archypr/internal/styles"
 )
 
 var helperInstallPromptMsg = "→ Do you want to install paru now? (Yy/Nn):"
 
 func installAurHelper() {
 
-	fmt.Println()
 	core.Logger.Warn("Paru is not installed...")
 
-	reader := bufio.NewReader(os.Stdin)
-
-	for {
-		lipgloss.Print(styles.CommonPromptStyle.Render(helperInstallPromptMsg))
-		fmt.Println()
-
-		input, _ := reader.ReadString('\n')
-		input = strings.ToLower(strings.TrimSpace(input))
-
-		if input == "n" || input == "" {
-			fmt.Println()
-			core.Logger.Info("Installation cancelled by user.")
-			os.Exit(0)
-		} else if input == "y" {
-			break
-		}
-
-		core.Logger.Warn("Invalid input. Please type y or n ...")
+	if !core.Confirm(os.Stdin, helperInstallPromptMsg) {
+		core.Logger.Info("Installation cancelled by user.")
+		os.Exit(0)
 	}
 
 	homeDir, err := os.UserHomeDir()
@@ -65,11 +44,9 @@ func installAurHelper() {
 	buildCmd.Stderr = os.Stderr
 
 	if err := buildCmd.Run(); err != nil {
-		fmt.Println()
 		core.TimeLogger.Fatal("Failed to build and install paru...")
 	}
 
-	fmt.Println()
 	core.Logger.Info("Paru has been successfully built and installed!")
 }
 

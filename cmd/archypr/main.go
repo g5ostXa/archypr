@@ -8,6 +8,7 @@ import (
 )
 
 func main() {
+
 	// Show header and prompt to srart the install
 	header.InstallStart()
 

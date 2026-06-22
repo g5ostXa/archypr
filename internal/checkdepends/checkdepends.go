@@ -1,16 +1,13 @@
 package checkdepends
 
 import (
-	"bufio"
 	"fmt"
-	"io"
 	"os"
 	"os/exec"
 	"strings"
 
 	"github.com/g5ostXa/archypr/internal/core"
 	"github.com/g5ostXa/archypr/internal/installpackages"
-	"github.com/g5ostXa/archypr/internal/styles"
 )
 
 var dependInstallPromptMsg = "→ Do you want to install all missing dependencies now? (Yy/Nn):"
@@ -88,17 +85,16 @@ var packages = []string{
 type packageChecker func(string) bool
 
 func Validate() {
-
 	missingPackages := missingDependencies(packages, isPackageInstalled)
 	if len(missingPackages) == 0 {
 		core.Logger.Info("All dependencies are already installed.")
 		return
 	}
 
+	core.TimeLogger.Warn("Some dependencies are missing...")
 	core.Logger.Warn(fmt.Sprintf("Missing dependencies: %s", strings.Join(missingPackages, ", ")))
 
-	if !confirmDependencyInstall(os.Stdin, os.Stdout) {
-		fmt.Println()
+	if !core.Confirm(os.Stdin, dependInstallPromptMsg) {
 		core.Logger.Info("Installation cancelled by user.")
 		os.Exit(0)
 	}
@@ -107,7 +103,6 @@ func Validate() {
 }
 
 func missingDependencies(packages []string, installed packageChecker) []string {
-
 	missing := make([]string, 0)
 	for _, pkg := range packages {
 		if !installed(pkg) {
@@ -118,34 +113,6 @@ func missingDependencies(packages []string, installed packageChecker) []string {
 }
 
 func isPackageInstalled(pkg string) bool {
-
 	cmd := exec.Command("paru", "-Qi", pkg)
 	return cmd.Run() == nil
-}
-
-func fprint(output io.Writer, message string) {
-
-	fmt.Fprint(output, styles.CommonPromptStyle.Render(message))
-}
-
-func confirmDependencyInstall(input io.Reader, output io.Writer) bool {
-
-	reader := bufio.NewReader(input)
-
-	for {
-		fmt.Fprintln(output)
-		fprint(output, dependInstallPromptMsg)
-
-		answer, _ := reader.ReadString('\n')
-		answer = strings.ToLower(strings.TrimSpace(answer))
-
-		switch answer {
-		case "y":
-			return true
-		case "n", "":
-			return false
-		default:
-			core.Logger.Warn("Invalid input. Please type y or n ...")
-		}
-	}
 }

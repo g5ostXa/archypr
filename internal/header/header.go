@@ -1,10 +1,8 @@
 package header
 
 import (
-	"bufio"
 	"fmt"
 	"os"
-	"strings"
 	"time"
 
 	"charm.land/lipgloss/v2"
@@ -35,27 +33,12 @@ func InstallStart() {
 		),
 	)
 
-	reader := bufio.NewReader(os.Stdin)
-
 	time.Sleep(1 * time.Second)
-	fmt.Println()
-
 	core.TimeLogger.Info("Initialized installer...")
 	time.Sleep(1 * time.Second)
 
-	for {
-		lipgloss.Print(styles.CommonPromptStyle.Render(installPromptMsg))
-
-		input, _ := reader.ReadString('\n')
-		input = strings.ToLower(strings.TrimSpace(input))
-
-		if input == "n" || input == "" {
-			core.Logger.Info("Installation cancelled by user.")
-			os.Exit(0)
-		} else if input == "y" {
-			break
-		}
-
-		core.Logger.Warn("Invalid input. Please type y or n ...")
+	if !core.Confirm(os.Stdin, installPromptMsg) {
+		core.Logger.Info("Installation cancelled by user.")
+		os.Exit(0)
 	}
 }
