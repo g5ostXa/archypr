@@ -9,6 +9,7 @@ import (
 
 	"charm.land/lipgloss/v2"
 	"github.com/g5ostXa/archypr/internal/core"
+	"github.com/g5ostXa/archypr/internal/installpackages"
 	"github.com/g5ostXa/archypr/internal/styles"
 )
 
@@ -114,4 +115,5 @@ func Validate() {
 			core.Logger.Warn("Invalid input. Please type y or n ...")
 		}
 	}
+	installpackages.Needed(Packages)
 }
