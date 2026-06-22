@@ -3,6 +3,7 @@ package pacmanconf
 import "testing"
 
 func TestUpdatePacmanConf(t *testing.T) {
+
 	input := []byte(`#Color
 #VerbosePkgLists
 #ParallelDownloads = 5
@@ -24,6 +25,7 @@ ILoveCandy
 }
 
 func TestUpdatePacmanConfIsIdempotent(t *testing.T) {
+
 	input := []byte(`Color
 VerbosePkgLists
 ParallelDownloads = 5

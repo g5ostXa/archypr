@@ -8,6 +8,7 @@ import (
 )
 
 func TestMissingDependenciesReturnsOnlyMissingPackages(t *testing.T) {
+
 	packages := []string{"hyprland", "waybar", "ghostty"}
 	installedPackages := map[string]bool{
 		"hyprland": true,
@@ -25,6 +26,7 @@ func TestMissingDependenciesReturnsOnlyMissingPackages(t *testing.T) {
 }
 
 func TestMissingDependenciesReturnsEmptyWhenAllInstalled(t *testing.T) {
+
 	packages := []string{"hyprland", "waybar"}
 
 	missing := missingDependencies(packages, func(string) bool {
@@ -37,6 +39,7 @@ func TestMissingDependenciesReturnsEmptyWhenAllInstalled(t *testing.T) {
 }
 
 func TestConfirmDependencyInstallAcceptsYes(t *testing.T) {
+
 	var output bytes.Buffer
 
 	confirmed := confirmDependencyInstall(strings.NewReader("y\n"), &output)
@@ -47,6 +50,7 @@ func TestConfirmDependencyInstallAcceptsYes(t *testing.T) {
 }
 
 func TestConfirmDependencyInstallRejectsNoAndEmptyInput(t *testing.T) {
+
 	tests := map[string]string{
 		"no":    "n\n",
 		"empty": "\n",
@@ -66,6 +70,7 @@ func TestConfirmDependencyInstallRejectsNoAndEmptyInput(t *testing.T) {
 }
 
 func TestConfirmDependencyInstallRepromptsAfterInvalidInput(t *testing.T) {
+
 	var output bytes.Buffer
 
 	confirmed := confirmDependencyInstall(strings.NewReader("maybe\ny\n"), &output)

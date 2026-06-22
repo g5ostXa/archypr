@@ -14,12 +14,14 @@ import (
 const PacmanConfPath = "/etc/pacman.conf"
 
 func Configure() {
+
 	if err := ConfigureFile(PacmanConfPath); err != nil {
 		core.Logger.Warn("Failed to configure pacman", "error", err)
 	}
 }
 
 func ConfigureFile(path string) error {
+
 	fileInfo, err := os.Stat(path)
 	if err != nil {
 		return fmt.Errorf("stat %s: %w", path, err)
@@ -48,6 +50,7 @@ func ConfigureFile(path string) error {
 }
 
 func writeConfigFile(path string, contents []byte, perm os.FileMode) error {
+
 	if os.Geteuid() == 0 {
 		return os.WriteFile(path, contents, perm)
 	}
@@ -69,6 +72,7 @@ func writeConfigFile(path string, contents []byte, perm os.FileMode) error {
 }
 
 func updatePacmanConf(contents []byte) ([]byte, []string) {
+
 	text := strings.ReplaceAll(string(contents), "\r\n", "\n")
 	hasTrailingNewline := strings.HasSuffix(text, "\n")
 	lines := strings.Split(text, "\n")
@@ -118,6 +122,7 @@ func updatePacmanConf(contents []byte) ([]byte, []string) {
 }
 
 func insertLine(lines []string, index int, line string) []string {
+
 	lines = append(lines, "")
 	copy(lines[index+1:], lines[index:])
 	lines[index] = line
@@ -125,6 +130,7 @@ func insertLine(lines []string, index int, line string) []string {
 }
 
 func uncommentLine(line string) string {
+
 	commentIndex := strings.Index(line, "#")
 	if commentIndex == -1 {
 		return line
