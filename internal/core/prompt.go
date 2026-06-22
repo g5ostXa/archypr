@@ -8,8 +8,6 @@ import (
 	"github.com/g5ostXa/archypr/internal/styles"
 )
 
-// Confirm prompts the user until they answer yes or no.
-// It returns true for "y" and false for "n" or an empty answer.
 func Confirm(input io.Reader, prompt string) bool {
 	reader := bufio.NewReader(input)
 
