@@ -33,7 +33,13 @@ func InstallStart() {
 		),
 	)
 
+	fmt.Println()
+
+	core.CommonSeparator()
 	time.Sleep(1 * time.Second)
+
+	fmt.Println()
+
 	core.TimeLogger.Info("Initialized installer...")
 	time.Sleep(1 * time.Second)
 

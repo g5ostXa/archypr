@@ -9,8 +9,13 @@ var (
 	white = lipgloss.Color("#FFFFFF")
 	blue  = lipgloss.Color("#2436c5")
 	//green = lipgloss.Color("#1fc876")
-	//purple = lipgloss.Color("#8010d0")
+	purple = lipgloss.Color("#8010d0")
 )
+
+// Common separator
+var ComSeparatorStyle = lipgloss.NewStyle().
+	Bold(true).
+	Foreground((purple))
 
 // Master header style
 var (

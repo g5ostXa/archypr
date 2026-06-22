@@ -5,7 +5,9 @@ import (
 	"os"
 	"os/exec"
 
+	"charm.land/lipgloss/v2"
 	"github.com/charmbracelet/log"
+	"github.com/g5ostXa/archypr/internal/styles"
 )
 
 // Common logger
@@ -29,4 +31,10 @@ func ClearScreen() {
 		fmt.Printf("\033[2J\033[H")
 	}
 	fmt.Print(string(output))
+}
+
+func CommonSeparator() {
+
+	var commonSeparator = "⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯"
+	lipgloss.Println(styles.ComSeparatorStyle.Render(commonSeparator))
 }
