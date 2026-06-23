@@ -22,6 +22,8 @@ var TimeLogger = log.NewWithOptions(os.Stderr, log.Options{
 	Prefix:          ":",
 })
 
+var commonSeparator = "⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯"
+
 func ClearScreen() {
 
 	cmd := exec.Command("clear")
@@ -35,6 +37,5 @@ func ClearScreen() {
 
 func CommonSeparator() {
 
-	var commonSeparator = "⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯"
 	lipgloss.Println(styles.ComSeparatorStyle.Render(commonSeparator))
 }
