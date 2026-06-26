@@ -1,0 +1,22 @@
+#waybar {
+	background-color: @outline;
+}
+
+#waybar>box {
+	margin: 5px;
+	background-color: @main-bg;
+}
+
+/*--------------
+    Tooltips
+--------------*/
+
+tooltip {
+	border: 3px @main-br;
+	border-radius: 0.5px;
+	background-color: @main-bg;
+}
+
+tooltip>box {
+	padding: 0 3px;
+}

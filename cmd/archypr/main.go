@@ -5,6 +5,7 @@ import (
 	"github.com/g5ostXa/archypr/internal/checkdepends"
 	"github.com/g5ostXa/archypr/internal/header"
 	"github.com/g5ostXa/archypr/internal/pacmanconf"
+	"github.com/g5ostXa/archypr/internal/sethypr"
 )
 
 func main() {
@@ -18,4 +19,6 @@ func main() {
 	// Install paru and all archypr dependendices
 	aurhelper.Check()
 	checkdepends.Validate()
+
+	sethypr.SourceCopy()
 }
