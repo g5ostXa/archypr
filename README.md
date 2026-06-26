@@ -7,6 +7,3 @@
 
 We welcome contributions, ideas, advice and even opinions. \
 Communicate with us: g5ostX2@proton.me
-
-> [!WARNING]
-> - **LLM code free project, every PR that contains obvious AI generated code will be automatically denied and closed.**
