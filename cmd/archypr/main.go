@@ -10,13 +10,13 @@ import (
 
 func main() {
 
-	// Show header and prompt to srart the install
+	// Show header and prompt to start the install
 	header.InstallStart()
 
 	// Configure /etc/pacman.conf
 	pacmanconf.Configure()
 
-	// Install paru and all archypr dependendices
+	// Install paru and all archypr dependencies
 	aurhelper.Check()
 	checkdepends.Validate()
 
