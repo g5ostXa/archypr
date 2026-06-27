@@ -9,6 +9,7 @@ import (
 )
 
 func Needed(packages []string) {
+
 	if len(packages) == 0 {
 		core.Logger.Info("No missing dependencies to install.")
 		return

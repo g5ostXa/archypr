@@ -13,6 +13,7 @@ import (
 const hyprDots = "dotfiles"
 
 func SourceCopy() {
+
 	// Get user's home directory
 	homeDir, err := os.UserHomeDir()
 	if err != nil {
@@ -31,6 +32,7 @@ func SourceCopy() {
 }
 
 func copyEmbeddedDir(srcFS fs.FS, srcRoot, dest string) error {
+
 	return fs.WalkDir(srcFS, srcRoot, func(path string, entry fs.DirEntry, err error) error {
 		if err != nil {
 			return err
@@ -59,6 +61,7 @@ func copyEmbeddedDir(srcFS fs.FS, srcRoot, dest string) error {
 }
 
 func copyEmbeddedFile(srcFS fs.FS, src, dest string, mode os.FileMode) error {
+
 	if err := os.MkdirAll(filepath.Dir(dest), 0o755); err != nil {
 		return err
 	}
@@ -87,6 +90,7 @@ func copyEmbeddedFile(srcFS fs.FS, src, dest string, mode os.FileMode) error {
 }
 
 func makeExistingFileWritable(path string) error {
+
 	info, err := os.Stat(path)
 	if err == nil {
 		if info.IsDir() {
@@ -101,10 +105,12 @@ func makeExistingFileWritable(path string) error {
 }
 
 func writableDirMode(mode os.FileMode) os.FileMode {
+
 	return mode.Perm() | 0o700
 }
 
 func writableFileMode(mode os.FileMode) os.FileMode {
+
 	mode = mode.Perm() | 0o600
 	if mode&0o111 != 0 {
 		mode |= 0o100

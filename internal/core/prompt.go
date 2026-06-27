@@ -9,6 +9,7 @@ import (
 )
 
 func Confirm(input io.Reader, prompt string) bool {
+
 	reader := bufio.NewReader(input)
 
 	for {

@@ -8,6 +8,7 @@ import (
 )
 
 func TestCopiesFiles(t *testing.T) {
+
 	t.Parallel()
 
 	srcFS := fstest.MapFS{
@@ -22,6 +23,7 @@ func TestCopiesFiles(t *testing.T) {
 	dest := t.TempDir()
 
 	if err := copyEmbeddedDir(srcFS, ".", dest); err != nil {
+
 		t.Fatalf("copyEmbeddedDir() error = %v", err)
 	}
 
@@ -39,6 +41,7 @@ func TestCopiesFiles(t *testing.T) {
 }
 
 func TestCopyEmbeddedDir(t *testing.T) {
+
 	t.Parallel()
 
 	srcFS := fstest.MapFS{

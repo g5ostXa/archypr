@@ -85,6 +85,7 @@ var packages = []string{
 type packageChecker func(string) bool
 
 func Validate() {
+
 	missingPackages := missingDependencies(packages, isPackageInstalled)
 	if len(missingPackages) == 0 {
 		core.Logger.Info("All dependencies are already installed.")
@@ -103,6 +104,7 @@ func Validate() {
 }
 
 func missingDependencies(packages []string, installed packageChecker) []string {
+
 	missing := make([]string, 0)
 	for _, pkg := range packages {
 		if !installed(pkg) {
@@ -113,6 +115,7 @@ func missingDependencies(packages []string, installed packageChecker) []string {
 }
 
 func isPackageInstalled(pkg string) bool {
+
 	cmd := exec.Command("paru", "-Qi", pkg)
 	return cmd.Run() == nil
 }

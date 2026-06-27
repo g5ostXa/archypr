@@ -8,6 +8,7 @@ import (
 )
 
 func TestConfirmAcceptsYes(t *testing.T) {
+
 	var output bytes.Buffer
 	silenceLogger(t, &output)
 
@@ -19,6 +20,7 @@ func TestConfirmAcceptsYes(t *testing.T) {
 }
 
 func TestConfirmRejectsNoAndEmptyInput(t *testing.T) {
+
 	tests := map[string]string{
 		"no":    "n\n",
 		"empty": "\n",
@@ -39,6 +41,7 @@ func TestConfirmRejectsNoAndEmptyInput(t *testing.T) {
 }
 
 func TestConfirmRepromptsAfterInvalidInput(t *testing.T) {
+
 	var output bytes.Buffer
 	silenceLogger(t, &output)
 
@@ -50,6 +53,7 @@ func TestConfirmRepromptsAfterInvalidInput(t *testing.T) {
 }
 
 func silenceLogger(t *testing.T, output *bytes.Buffer) {
+
 	t.Helper()
 
 	Logger.SetOutput(output)

@@ -6,6 +6,7 @@ import (
 )
 
 func TestMissingDependencies(t *testing.T) {
+
 	expected := []string{packages[0], packages[len(packages)/2], packages[len(packages)-1]}
 	missingPackages := make(map[string]bool, len(expected))
 	for _, pkg := range expected {
@@ -22,6 +23,7 @@ func TestMissingDependencies(t *testing.T) {
 }
 
 func TestMissingDependenciesAllInstalled(t *testing.T) {
+
 	missing := missingDependencies(packages, func(string) bool {
 		return true
 	})
@@ -32,6 +34,7 @@ func TestMissingDependenciesAllInstalled(t *testing.T) {
 }
 
 func TestMissingDependenciesChecksAll(t *testing.T) {
+
 	checked := make(map[string]int, len(packages))
 
 	missingDependencies(packages, func(pkg string) bool {
