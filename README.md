@@ -18,7 +18,7 @@ Communicate with us: g5ostX2@proton.me
 ### Installation
 First you'll need to make sure you're on a brand new [Arch](https://archlinux.org) base system. 
 
-Then, install the pre-install dependencies:
+Then, install the pre-installation dependencies:
 ```bash
 sudo pacman -S --needed --noconfirm go curl git reflector xdg-utils xdg-user-dirs vim networkmanager network-manager-applet wireless_tools wpa_supplicant dialog os-prober mtools dosfstools base-devel linux-headers
 ```
@@ -28,23 +28,16 @@ Also, make sure you have user directories and `~/.config` in your `HOME` directo
 ```bash
 $ xdg-user-dirs-update && mkdir -p "$HOME/.config"
 ```
+
 <br>
 
-Now, to download the latest git for [archypr](https://github.com/g5ostXa/archypr):
-```bash
-git clone --depth=1 https://github.com/g5ostXa/archypr.git
-```
-<br>
-
-To get the latest release, get the binrary [here](https://github.com/g5ostXa/archypr/releases/download/0.0-2/archypr-bin) and it's `sha256` [here](https://github.com/g5ostXa/archypr/releases/download/0.0-2/archypr-bin.sha256)
-  or, simply use `curl`:
+To get the latest release and the `sha256sum` using `curl`:
 ```bash
 curl -L -o archypr-bin https://github.com/g5ostXa/archypr/releases/download/0.0-2/archypr-bin && curl -L -o archypr-bin.sha256 https://github.com/g5ostXa/archypr/releases/download/0.0-2/archypr-bin.sha256
 ```
+<br>
 
-### Verify the binary
-If you downloaded the project via `curl` or the release page via your browser, \
-you can verify the binrary with the `archypr-bin.sha256` file:
+Verify the binary:
 ```bash
 sha256sum -c ./archypr-bin.sha256
 ```
@@ -54,7 +47,14 @@ archypr-bin: OK
 ```
 
 ### Usage
-Make the binary executable and run it:
+Make the binary executable:
 ```bash
-chmod +x ./archypr-bin && ./archypr-bin 
+chmod +x ./archypr-bin 
+```
+
+<br>
+
+Run the binary:
+```bash
+./archypr-bin
 ```
