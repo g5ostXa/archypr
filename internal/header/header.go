@@ -12,7 +12,7 @@ import (
 
 var (
 	MasterTitle = "archypr"
-	Version     = "0.0-1"
+	Version     = "0.1"
 )
 
 var installPromptMsg = "Do you want to start the installation now? (Yy/Nn)"

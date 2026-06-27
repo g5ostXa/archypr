@@ -33,7 +33,7 @@ $ xdg-user-dirs-update && mkdir -p "$HOME/.config"
 
 To get the latest release and the `sha256sum` using `curl`:
 ```bash
-curl -L -o archypr-bin https://github.com/g5ostXa/archypr/releases/download/0.0-2/archypr-bin && curl -L -o archypr-bin.sha256 https://github.com/g5ostXa/archypr/releases/download/0.0-2/archypr-bin.sha256
+curl -L -o archypr-bin https://github.com/g5ostXa/archypr/releases/download/0.1/archypr-bin && curl -L -o archypr-bin.sha256 https://github.com/g5ostXa/archypr/releases/download/0.1/archypr-bin.sha256
 ```
 <br>
 
