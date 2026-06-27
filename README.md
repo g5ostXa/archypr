@@ -36,12 +36,11 @@ git clone --depth=1 https://github.com/g5ostXa/archypr.git
 ```
 <br>
 
-To get the latest release, get the binrary [here](https://github.com/g5ostXa/archypr/releases/download/0.0-1/archypr-bin) and it's `sha256` [here](https://github.com/g5ostXa/archypr/releases/download/0.0-1/archypr-bin.sha256)
+To get the latest release, get the binrary [here](https://github.com/g5ostXa/archypr/releases/download/0.0-2/archypr-bin) and it's `sha256` [here](https://github.com/g5ostXa/archypr/releases/download/0.0-2/archypr-bin.sha256)
   or, simply use `curl`:
 ```bash
-curl -L -o archypr-bin https://github.com/g5ostXa/archypr/releases/download/0.0-1/archypr-bin && curl -L -o archypr-bin.sha256 https://github.com/g5ostXa/archypr/releases/download/0.0-1/archypr-bin.sha256
+curl -L -o archypr-bin https://github.com/g5ostXa/archypr/releases/download/0.0-2/archypr-bin && curl -L -o archypr-bin.sha256 https://github.com/g5ostXa/archypr/releases/download/0.0-2/archypr-bin.sha256
 ```
-<br>
 
 ### Verify the binary
 If you downloaded the project via `curl` or the release page via your browser, \
@@ -53,7 +52,6 @@ Expected output:
 ```bash
 archypr-bin: OK
 ```
-<br>
 
 ### Usage
 Make the binary executable and run it:
