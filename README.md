@@ -16,8 +16,7 @@ Communicate with us: g5ostX2@proton.me
 <br>
 
 ### Installation
-First you'll need to make sure you're on a brand new [Arch](https://archlinux.org) base system, \
-and that you're logged in the archiso's tty. 
+First you'll need to make sure you're on a brand new [Arch](https://archlinux.org) base system. 
 
 Then, install the pre-install dependencies:
 ```bash
@@ -57,7 +56,7 @@ archypr-bin: OK
 <br>
 
 ### Usage
-Make the binary executalble and run it:
+Make the binary executable and run it:
 ```bash
 chmod +x ./archypr-bin && ./archypr-bin 
 ```
