@@ -13,7 +13,7 @@ Communicate with us: g5ostX2@proton.me
 > - This is a slow project that might get discontinued really quick, or not. 
 > - My real hyprland dotfiles repo lives [here](https://github.com/g5ostXa/hyprarch2)
 
-### Installation
+### Installation and usage
 Download tbe latest git:
 ```bash
 git clone --depth=1 https://github.com/g5ostXa/archypr.git /path/to/target/dir
