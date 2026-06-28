@@ -12,5 +12,20 @@ Communicate with us: g5ostX2@proton.me
 > - archypr is NOT production ready. 
 > - This is a slow project that might get discontinued really quick, or not. 
 > - My real hyprland dotfiles repo lives [here](https://github.com/g5ostXa/hyprarch2)
-> - I'm 100% self-taught and definitly have skill issues, so this is also meant to improve my skills.
-<br>
+
+### Installation
+Download tbe latest git:
+```bash
+git clone --depth=1 https://github.com/g5ostXa/archypr.git /path/to/target/dir
+```
+
+To run, cd into [archypr](https://github.com/g5ostXa/archypr) and simply run:
+```bash
+go run ./cmd/archypr
+```
+
+Or, build the binary and move it to your `$GOBIN` directory:
+```bash
+go build -o "binrary-name" ./cmd/archypr
+mv ./binary-name "$GOBIN" 
+```
