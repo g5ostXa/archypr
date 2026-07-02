@@ -21,4 +21,5 @@ func main() {
 	checkdepends.Validate()
 
 	sethypr.SourceCopy()
+	sethypr.AssetsCopy()
 }

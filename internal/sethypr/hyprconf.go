@@ -10,7 +10,7 @@ import (
 	"github.com/g5ostXa/archypr/internal/core"
 )
 
-const hyprDots = "dotfiles"
+const hyprDots = ".config/hypr"
 
 func SourceCopy() {
 
@@ -22,12 +22,21 @@ func SourceCopy() {
 
 	// Run this if successfully determined user's home dir
 	dotfilesDestDir := filepath.Join(homeDir, hyprDots)
-
 	core.Logger.Info("Copying dotfiles...")
 
-	if err := copyEmbeddedDir(dotfiles.FS, ".", dotfilesDestDir); err != nil {
+	if err := os.MkdirAll(dotfilesDestDir, 0o755); err != nil {
+		core.Logger.Fatal("Failed to create destination directory...", err)
+	}
+
+	subFS, err := fs.Sub(dotfiles.FS, "hypr")
+	if err != nil {
+		core.Logger.Fatal("Failed to create sub-filesystem view...", err)
+	}
+
+	if err := copyEmbeddedDir(subFS, ".", dotfilesDestDir); err != nil {
 		core.Logger.Fatal("Failed to copy dotfiles...", err)
 	}
+
 	core.Logger.Info("Dotfiles copied successfully")
 }
 
@@ -42,6 +51,7 @@ func copyEmbeddedDir(srcFS fs.FS, srcRoot, dest string) error {
 		if err != nil {
 			return err
 		}
+
 		if relPath == "." {
 			return nil
 		}
@@ -56,6 +66,7 @@ func copyEmbeddedDir(srcFS fs.FS, srcRoot, dest string) error {
 		if entry.IsDir() {
 			return os.MkdirAll(targetPath, writableDirMode(info.Mode()))
 		}
+
 		return copyEmbeddedFile(srcFS, path, targetPath, writableFileMode(info.Mode()))
 	})
 }
