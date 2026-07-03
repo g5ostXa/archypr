@@ -22,4 +22,5 @@ func main() {
 
 	sethypr.SourceCopy()
 	sethypr.AssetsCopy()
+	sethypr.BashrcCopy()
 }

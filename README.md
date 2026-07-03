@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src=".github/logos/archypr.png" height="350" width="400">
+<img src="assets/logos/archypr.png" height="350" width="400">
 </div>
 
 Archypr is an installer for a pre-configured [hyprland](https://hypr.land) setup on top of [Archlinux](https://archlinux.org).

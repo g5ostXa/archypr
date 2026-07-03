@@ -10,7 +10,7 @@ import (
 	"github.com/g5ostXa/archypr/internal/core"
 )
 
-const hyprDots = ".config/hypr"
+var hyprConfDir = ".config/hypr"
 
 func SourceCopy() {
 
@@ -21,7 +21,7 @@ func SourceCopy() {
 	}
 
 	// Run this if successfully determined user's home dir
-	dotfilesDestDir := filepath.Join(homeDir, hyprDots)
+	dotfilesDestDir := filepath.Join(homeDir, hyprConfDir)
 	core.Logger.Info("Copying dotfiles...")
 
 	if err := os.MkdirAll(dotfilesDestDir, 0o755); err != nil {
