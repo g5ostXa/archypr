@@ -3,7 +3,7 @@ module github.com/g5ostXa/archypr
 go 1.26.3
 
 require (
-	charm.land/lipgloss/v2 v2.0.4
+	charm.land/lipgloss/v2 v2.0.5
 	github.com/charmbracelet/log v1.0.0
 )
 
@@ -11,7 +11,7 @@ require (
 	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
 	github.com/charmbracelet/colorprofile v0.4.3 // indirect
 	github.com/charmbracelet/lipgloss v1.1.0 // indirect
-	github.com/charmbracelet/ultraviolet v0.0.0-20260622092850-f39628c8a989 // indirect
+	github.com/charmbracelet/ultraviolet v0.0.0-20260703014108-f5a850f9c2b7 // indirect
 	github.com/charmbracelet/x/ansi v0.11.7 // indirect
 	github.com/charmbracelet/x/cellbuf v0.0.15 // indirect
 	github.com/charmbracelet/x/term v0.2.2 // indirect
