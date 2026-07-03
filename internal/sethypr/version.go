@@ -6,13 +6,13 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/g5ostXa/archypr/assets"
 	"github.com/g5ostXa/archypr/internal/core"
+	"github.com/g5ostXa/archypr/version"
 )
 
-var assetsDir = "assets"
+var versionDir = "version"
 
-func AssetsCopy() {
+func VersionCopy() {
 
 	// Get user's home directory
 	homeDir, err := os.UserHomeDir()
@@ -21,17 +21,17 @@ func AssetsCopy() {
 	}
 
 	// Run this if successfully determined user's home dir
-	assetsDestDir := filepath.Join(homeDir, assetsDir)
+	versionDestDir := filepath.Join(homeDir, versionDir)
 
-	core.Logger.Info("Copying assets...")
+	core.Logger.Info("Copying version...")
 
-	if err := copyEmbeddedassetsDir(assets.FS, ".", assetsDestDir); err != nil {
-		core.Logger.Fatal("Failed to copy assets...", err)
+	if err := copyEmbeddedversionDir(version.FS, ".", versionDestDir); err != nil {
+		core.Logger.Fatal("Failed to copy version...", err)
 	}
-	core.Logger.Info("Assets copied successfully")
+	core.Logger.Info("version copied successfully")
 }
 
-func copyEmbeddedassetsDir(srcFS fs.FS, srcRoot, dest string) error {
+func copyEmbeddedversionDir(srcFS fs.FS, srcRoot, dest string) error {
 
 	return fs.WalkDir(srcFS, srcRoot, func(path string, entry fs.DirEntry, err error) error {
 		if err != nil {
@@ -54,13 +54,13 @@ func copyEmbeddedassetsDir(srcFS fs.FS, srcRoot, dest string) error {
 		targetPath := filepath.Join(dest, filepath.FromSlash(relPath))
 
 		if entry.IsDir() {
-			return os.MkdirAll(targetPath, writableassetsDirMode(info.Mode()))
+			return os.MkdirAll(targetPath, writableversionDirMode(info.Mode()))
 		}
-		return copyEmbeddedAssetsFile(srcFS, path, targetPath, writableAssetsFileMode(info.Mode()))
+		return copyEmbeddedversionFile(srcFS, path, targetPath, writableversionFileMode(info.Mode()))
 	})
 }
 
-func copyEmbeddedAssetsFile(srcFS fs.FS, src, dest string, mode os.FileMode) error {
+func copyEmbeddedversionFile(srcFS fs.FS, src, dest string, mode os.FileMode) error {
 
 	if err := os.MkdirAll(filepath.Dir(dest), 0o755); err != nil {
 		return err
@@ -72,7 +72,7 @@ func copyEmbeddedAssetsFile(srcFS fs.FS, src, dest string, mode os.FileMode) err
 	}
 	defer srcFile.Close()
 
-	if err := makeWritableAssets(dest); err != nil {
+	if err := makeWritableversion(dest); err != nil {
 		return err
 	}
 
@@ -89,14 +89,14 @@ func copyEmbeddedAssetsFile(srcFS fs.FS, src, dest string, mode os.FileMode) err
 	return destFile.Chmod(mode)
 }
 
-func makeWritableAssets(path string) error {
+func makeWritableversion(path string) error {
 
 	info, err := os.Stat(path)
 	if err == nil {
 		if info.IsDir() {
 			return nil
 		}
-		return os.Chmod(path, writableAssetsFileMode(info.Mode()))
+		return os.Chmod(path, writableversionFileMode(info.Mode()))
 	}
 	if os.IsNotExist(err) {
 		return nil
@@ -104,12 +104,12 @@ func makeWritableAssets(path string) error {
 	return err
 }
 
-func writableassetsDirMode(mode os.FileMode) os.FileMode {
+func writableversionDirMode(mode os.FileMode) os.FileMode {
 
 	return mode.Perm() | 0o700
 }
 
-func writableAssetsFileMode(mode os.FileMode) os.FileMode {
+func writableversionFileMode(mode os.FileMode) os.FileMode {
 
 	mode = mode.Perm() | 0o600
 	if mode&0o111 != 0 {

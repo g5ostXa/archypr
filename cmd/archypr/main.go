@@ -20,7 +20,9 @@ func main() {
 	aurhelper.Check()
 	checkdepends.Validate()
 
+	// Apply config files
 	sethypr.SourceCopy()
 	sethypr.AssetsCopy()
 	sethypr.BashrcCopy()
+	sethypr.VersionCopy()
 }
