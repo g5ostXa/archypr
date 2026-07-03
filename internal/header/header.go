@@ -29,7 +29,7 @@ func InstallStart() {
 
 	lipgloss.Println(
 		styles.MasterVersionStyle.Render(
-			fmt.Sprintf("Version: %s", Version),
+			fmt.Sprintf("> Version: %s", Version),
 		),
 	)
 

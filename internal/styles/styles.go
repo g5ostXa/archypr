@@ -32,7 +32,7 @@ var (
 				Align(lipgloss.Center).
 				Foreground((blue)).
 				Width(15).
-				PaddingLeft(1)
+				PaddingRight(1)
 
 	CommonPromptStyle = lipgloss.NewStyle().
 				Bold(true).
