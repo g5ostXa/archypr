@@ -1,0 +1,54 @@
+/*-----------
+    Hover
+-----------*/
+
+#backlight:hover,
+#custom-volume:hover,
+#custom-power_menu:hover,
+#custom-clipboard:hover,
+#custom-trigger:hover {
+    color: @accent;
+}
+
+#workspaces button:hover {
+    background-color: @hover-bg;
+    color: @hover-fg;
+}
+
+/*-------------
+    Warning
+-------------*/
+#memory.warning,
+#cpu.warning,
+#battery.warning,
+#custom-system_update.warning {
+    color: @warning;
+}
+
+/*--------------
+    Critical
+--------------*/
+
+#temperature.critical,
+#memory.critical,
+#cpu.critical,
+#battery.critical,
+#custom-system_update.critical {
+    color: @critical;
+}
+
+/*--------------
+    Charging
+--------------*/
+
+#battery.charging {
+    color: @charging;
+}
+
+/*-------------------
+    Sys-update OK
+-------------------*/
+
+#custom-system_update.ok {
+    color: @teal;
+}
