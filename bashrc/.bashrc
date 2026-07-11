@@ -42,8 +42,8 @@ eval "$(starship init bash)"
 cat ~/.cache/wal/sequences
 
 if [[ $(tty) == *"pts"* ]]; then
-	if [[ -f "$HOME/go/bin/cvndyfetch" ]]; then
-		"$HOME/go/bin/cvndyfetch" --title "archypr" --version-file "$HOME/.config/archypr/.version/latest"
+	if [[ -f "$HOME/go/bin/ghostshell" ]]; then
+		"$HOME/go/bin/ghostshell" --title "archypr" --version-file "$HOME/.config/archypr/.version/latest"
 	else
 		echo -e "${MAGENTA}"
 		cat <<"EOF"
